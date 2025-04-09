@@ -1,0 +1,47 @@
+# .env file
+.env
+.env.*.backup
+
+# Laravel logs
+/storage/*.key
+/storage/*.log
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/app/public/*
+!/storage/.gitignore
+!/storage/app/.gitignore
+!/storage/framework/.gitignore
+!/storage/logs/.gitignore
+
+# Laravel cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# Composer dependencies
+/vendor/
+
+# Node dependencies
+/node_modules/
+
+# IDEs and editors
+*.sublime-project
+*.sublime-workspace
+*.idea/
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NPM logs
+npm-debug.log
+yarn-error.log
+
+# PHPUnit
+.phpunit.result.cache
+
+# Laravel Telescope
+storage/telescope/*
