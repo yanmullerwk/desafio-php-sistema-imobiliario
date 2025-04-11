@@ -33,7 +33,11 @@
 <div class="login-container">
     <div class="login-box">
         <h2 class="text-center mb-4">Login</h2>
-
+        @if(session('error'))
+            <div class="alert alert-danger text-center">
+                {{ session('error') }}
+            </div>
+        @endif
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="mb-3">

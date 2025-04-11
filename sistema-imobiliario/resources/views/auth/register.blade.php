@@ -71,6 +71,10 @@
             </div>
 
             <button type="submit" class="btn btn-principal">Cadastrar</button>
+            <div class="text-center mt-4">
+                <p>Não possui usuário?</p>
+                <a href="{{ route('login.form') }}">login</a>
+            </div>
         </form>
     </div>
 </div>
