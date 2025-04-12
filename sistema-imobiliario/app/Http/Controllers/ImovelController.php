@@ -3,18 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Imovel;
+use App\Models\Pessoa;
 use Illuminate\Http\Request;
 
 class ImovelController extends Controller
 {
-    public function index()
-    {
-        $imoveis = Imovel::all();
-        return view('home.index', ['imoveis' => $imoveis]);
+    public function index(Request $request){
+        $query = Imovel::with('pessoa'); 
+
+        if ($request->has('logradouro') && $request->filled('logradouro')) {
+            $query->where('logradouro', 'like', '%' . $request->logradouro . '%');
+        }
+        
+        $imoveis = $query->paginate(15);
+
+        return view('imoveis.index', ['imoveis'=>$imoveis]);
     }
+
+
     public function create()
     {
-        return view('imoveis.create');
+        $pessoas = Pessoa::all();
+        if($pessoas->isEmpty()){
+            return redirect()->route('pessoas.create')->with('error','Você precisa cadastrar pelo menos uma pessoa antes de cadastrar um Imóvel');
+        }
+        return view('imoveis.create', ['pessoas'=>$pessoas]);
     }
 
     public function store(Request $request)
@@ -33,8 +46,9 @@ class ImovelController extends Controller
 
     public function edit($id)
     {
+        $pessoas = Pessoa::all();
         $imovel = Imovel::findOrFail($id);
-        return view('imoveis.edit', ['imovel' => $imovel]);
+        return view('imoveis.edit', ['imovel' => $imovel, 'pessoas'=>$pessoas]);
     }
 
     public function update(Request $request, $id)

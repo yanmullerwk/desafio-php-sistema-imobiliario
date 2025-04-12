@@ -56,4 +56,6 @@ class AuthController extends Controller
 
         return redirect()->route('home.index')->with('success','Cadastro concluido com sucesso!');
     }
+
+
 }

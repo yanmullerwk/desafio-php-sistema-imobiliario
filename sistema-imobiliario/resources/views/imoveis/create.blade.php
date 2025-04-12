@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <h2 class="mb-4">Cadastrar Imóvel</h2>
     <form action="{{ route('imoveis.store') }}" method="POST">
         @csrf
@@ -44,8 +44,8 @@
                 <option value="">Selecione uma pessoa</option>
                 @foreach($pessoas as $pessoa)
                     <option value="{{ $pessoa->id }}" {{ old('pessoa_id') == $pessoa->id ? 'selected' : '' }}>
-                        {{ $pessoa->nome }}
-                    </option>
+                        {{ $pessoa->nome}} (cpf:{{$pessoa->cpf}})
+                    </option> 
                 @endforeach
             </select>
             @error('pessoa_id')
@@ -54,7 +54,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Salvar</button>
-        <a href="{{ route('imoveis.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('home.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection

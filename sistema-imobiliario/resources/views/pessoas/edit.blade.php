@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">Editar Pessoa</h2>
+    <h2 class="mb-4 mt-5">Editar Pessoa</h2>
     <form action="{{ route('pessoas.update', $pessoa->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -42,7 +42,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Atualizar</button>
-        <a href="{{ route('pessoas.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('home.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection

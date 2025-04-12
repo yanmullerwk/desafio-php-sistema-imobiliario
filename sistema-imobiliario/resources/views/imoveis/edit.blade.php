@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <h2 class="mb-4">Editar Imóvel</h2>
     <form action="{{ route('imoveis.update', $imovel->id) }}" method="POST">
         @csrf
@@ -55,7 +55,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Atualizar</button>
-        <a href="{{ route('imoveis.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('home.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection

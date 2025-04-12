@@ -2,7 +2,19 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">Cadastrar Pessoa</h2>
+    <h2 class="mb-4 mt-5">Cadastrar Pessoa</h2>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <h5 class="mb-2">Erro(s) no formulário:</h5>
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <form action="{{ route('pessoas.store') }}" method="POST">
         @csrf
 
@@ -25,9 +37,9 @@
             <label for="sexo" class="form-label">Sexo</label>
             <select class="form-select" name="sexo" id="sexo" required>
                 <option value="">Selecione</option>
-                <option value="M">Masculino</option>
-                <option value="F">Feminino</option>
-                <option value="O">Outro</option>
+                <option value="M" {{ old('sexo') == 'M' ? 'selected' : '' }}>Masculino</option>
+                <option value="F" {{ old('sexo') == 'F' ? 'selected' : '' }}>Feminino</option>
+                <option value="Outro" {{ old('sexo') == 'Outro' ? 'selected' : '' }}>Outro</option>
             </select>
         </div>
 
@@ -42,7 +54,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Salvar</button>
-        <a href="{{ route('pessoas.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('home.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection
