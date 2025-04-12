@@ -1,4 +1,4 @@
-**(Não é necessario utilizar o arquivo .sql ja que utilizei o laravel que cria direto com as migrates)**
+**(Não é necessario utilizar o arquivo .sql ja que utilizei o laravel que cria as tables direto com as migrates)**
 
 
 # 🏠 Sistema de Cadastro de Pessoas e Imóveis (Laravel + MySQL)
