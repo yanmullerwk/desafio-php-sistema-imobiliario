@@ -1,3 +1,6 @@
+**(Não é necessario utilizar o arquivo .sql ja que utilizei o laravel que cria direto com as migrates)**
+
+
 # 🏠 Sistema de Cadastro de Pessoas e Imóveis (Laravel + MySQL)
 
 Este sistema web permite o cadastro, listagem, edição e exclusão de **pessoas** e **imóveis**, onde cada imóvel está associado a um **contribuinte** (pessoa). Inclui autenticação personalizada sem uso de pacotes prontos.
